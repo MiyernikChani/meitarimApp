@@ -1,0 +1,391 @@
+/* studentComponent.css */
+
+/* רקע אחיד עם גרדיאנט צבעי הלוגו */
+.student-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #21536d, #d0472c);
+    font-family: 'Arial', sans-serif;
+    padding: 30px 20px;
+}
+
+/* לוגו */
+.logo-container {
+    margin-bottom: 25px;
+    animation: logoBounce 2s infinite;
+}
+
+.logo {
+    width: 180px;
+    height: auto;
+}
+
+@keyframes logoBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* מיכל התלמיד */
+.student-container {
+    background-color: rgba(245, 245, 245, 0.95);
+    padding: 30px 35px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* שם התלמיד */
+.student-name {
+    font-size: 24px;
+    color: #21536d;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* הודעות */
+.message {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+}
+
+.message.success { background-color: #4caf50; }
+.message.warning { background-color: #ff9800; }
+.message.error { background-color: #f44336; }
+
+/* כפתורים מחוץ לריבוע הלבן, בשורה אחת - עגולים עם אייקון */
+.buttons-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto 10px auto;
+    justify-content: center;
+}
+
+/* כפתורים עגולים, שכבה אחת בלבד, דריסת PrimeNG */
+.buttons-wrapper p-button,
+.buttons-wrapper ::ng-deep button.p-button,
+.buttons-wrapper button.p-button {
+    all: unset; /* ביטול כל עיצוב */
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px; /* גודל אייקון */
+    cursor: pointer;
+    color: #fff !important;
+    background: linear-gradient(135deg, #21536d, #d0472c) !important;
+    transition: all 0.3s ease;
+}
+
+/* אייקון במרכז */
+.buttons-wrapper p-button i,
+.buttons-wrapper ::ng-deep button.p-button i,
+.buttons-wrapper button.p-button i {
+    pointer-events: none;
+}
+
+/* hover */
+.buttons-wrapper p-button:hover,
+.buttons-wrapper ::ng-deep button.p-button:hover,
+.buttons-wrapper button.p-button:hover {
+    opacity: 0.85;
+}
+
+/* כפתור יציאה קטן מתחת לשורה */
+.logout-btn {
+    width: 150px;
+    padding: 10px 0;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    color: #fff;
+    background-color: #21536d;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.logout-btn:hover { background-color: #d0472c; }
+
+/* רספונסיביות */
+@media (max-width: 768px) {
+    .student-container { width: 90%; padding: 25px; }
+    .logo { width: 140px; }
+    .student-name { font-size: 22px; }
+    .buttons-wrapper { max-width: 90%; gap: 12px; }
+}
+
+@media (max-width: 480px) {
+    .student-container { padding: 20px; }
+    .student-name { font-size: 20px; }
+    .buttons-wrapper { gap: 8px; flex-direction: column; }
+    .logout-btn { margin-top: 12px; }
+}
+/* כפתורים עם אייקון */
+.buttons-wrapper {
+    display: flex;
+    gap: 100px;
+    margin: 20px auto;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.button-with-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.circle-button {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #21536d, #d0472c);
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.circle-button:hover {
+    opacity: 0.85;
+}
+
+/* Label מתחת לכפתור */
+.button-label {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    padding: 2px 6px;
+}
+
+/* כפתור יציאה */
+.logout-btn {
+    width: 150px;
+    padding: 10px 0;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    color: #fff;
+    background-color: #21536d;
+    transition: all 0.3s ease;
+    margin-top: 50px;
+}
+
+.logout-btn:hover { background-color: #d0472c; }
+
+/* רספונסיביות */
+@media (max-width: 480px) {
+    .buttons-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+.logout-btn {
+    display: inline-flex;          /* מאפשר להציב אייקון וטקסט בשורה */
+    align-items: center;           /* ממרכזים אנכית את הטקסט והאייקון */
+    gap: 8px;                      /* רווח בין האייקון לטקסט */
+    font-family: 'Rubik', sans-serif; /* פונט Rubik */
+    width: auto;                   /* גודל מותאם לתוכן */
+    padding: 10px 20px;            /* ריווח פנימי */
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    color: #fff;
+    background-color: #21536d;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #d0472c;
+}
+
+
+
+
+
+
+
+
+
+
+/* --- הודעות בסגנון הערה דרמטי --- */
+.message.note {
+    width: 100%;
+    padding: 12px 18px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    font-style: italic;
+    opacity: 0.9;
+    background: rgba(33, 83, 109, 0.2); /* צבע בסיס עדין מהגרדיאנט */
+    animation: fadeInMove 1s ease forwards;
+    backdrop-filter: blur(5px); /* טשטוש רקע */
+}
+
+/* צבעים לפי סוג ההודעה */
+.message.note.success { background-color: rgba(33,83,109,0.2); color: #21536d; }
+.message.note.warning { background-color: rgba(208,71,44,0.2); color: #d0472c; }
+.message.note.error { background-color: rgba(208,71,44,0.25); color: #750000; }
+
+/* אנימציה קטנה להודעה */
+@keyframes fadeInMove {
+    0% { opacity: 0; transform: translateY(-10px); }
+    50% { opacity: 0.7; transform: translateY(3px); }
+    100% { opacity: 0.9; transform: translateY(0); }
+}
+
+
+
+
+
+
+
+
+
+
+
+.dramatic-dialog .p-dialog-content {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 40px 25px;
+    font-family: 'Rubik', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* מרכז אנכית */
+    text-align: center; /* מרכז אופקית */
+    gap: 12px;
+    min-height: 320px; /* גובה גבוה יותר */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow: hidden; /* מונע גלילה כאשר המספר גדל */
+}
+
+/* מספר הנקודות בלבד עם אנימציה עדינה */
+.dialog-content .points {
+    font-size: 40px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #21536d, #d0472c); /* כחול-אדום */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    display: inline-block; /* חשוב בשביל האנימציה לא להשפיע על שורה שלמה */
+    animation: pointsPop 0.5s ease forwards;
+}
+
+@keyframes pointsPop {
+    0% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1.3); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* טקסט רגיל בצבעי לוגו */
+.dialog-content p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #21536d; /* כחול מהלוגו */
+    margin: 0;
+}
+.dramatic-dialog .p-dialog-content {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    font-family: 'Rubik', sans-serif;
+    display: flex;
+    justify-content: center;      /* מרכז אנכית */
+    align-items: center;          /* מרכז אופקית */
+    text-align: center;           /* ממרכז גם טקסט */
+    min-height: 320px;            /* גובה הדיאלוג */
+    padding: 0;                   /* נטרל padding חיצוני כדי לא להזיז את המרכז */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow: hidden;             /* למנוע גלילה */
+}
+
+.dialog-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;      /* מרכז אנכית */
+    align-items: center;          /* מרכז אופקית */
+    height: 100%;                 /* תופס את כל הגובה של הדיאלוג */
+    gap: 12px;
+    padding: 25px;                /* ריווח פנימי למרכז את התוכן */
+}
+
+
+
+
+
+
+
+/* כלל בסיסי - האלמנטים בגודל קבוע */
+.student-container {
+    width: 400px;      /* קבוע */
+    padding: 30px 35px;
+}
+
+.logo {
+    width: 180px;      /* קבוע */
+}
+
+.buttons-wrapper {
+    gap: 15px;
+    max-width: 400px;  /* שומר על גודל הכפתורים */
+}
+
+
+
+
+/* רקע מתכווץ */
+.student-page {
+    padding: 30px 10px; /* מאפשר לכווץ את המסך בלי להשפיע על האלמנטים */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #21536d, #d0472c);
+    font-family: 'Arial', sans-serif;
+}
+
+/* טאבלט - שמור על כל הגדלים */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .student-container {
+        width: 400px;  /* נשאר קבוע */
+    }
+    .logo { width: 180px; } /* נשאר קבוע */
+    .buttons-wrapper { max-width: 400px; }
+}
+
+/* סמארטפון קטן - כאן כן מקטינים מעט כדי להתאים למסך */
+@media (max-width: 768px) {
+    .student-container { width: 90%; padding: 25px; }
+    .logo { width: 140px; }
+    .buttons-wrapper { max-width: 90%; gap: 12px; }
+}

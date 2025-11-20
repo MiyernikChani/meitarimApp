@@ -1,0 +1,64 @@
+<div class="student-page">
+    <div class="logo-container">
+        <img src="assets/images/logo.png" alt="Logo" class="logo" />
+    </div>
+
+    <div class="student-container" *ngIf="user">
+        <h2 class="student-name">{{ name }}</h2>
+
+        <!-- הודעות בסגנון הערה -->
+        <div *ngIf="message && messageType() === 'success'" class="message note success">
+            {{ message }}
+            <i class="pi pi-thumbs-up"></i>
+        </div>
+        <div *ngIf="message && messageType() === 'warning'" class="message note warning">
+            {{ message }}
+        </div>
+        <div *ngIf="message && messageType() === 'error'" class="message note error">
+            {{ message }}
+            <i class="pi pi-thumbs-down"></i>
+        </div>
+    </div>
+
+    <!-- כפתורים עם אייקון ו-label -->
+    <div class="buttons-wrapper">
+        <div class="button-with-label">
+            <button class="circle-button" (click)="showDialog1()">
+                <i class="pi pi-star"></i>
+            </button>
+            <span class="button-label">הנקודות שלי</span>
+        </div>
+
+        <div class="button-with-label" *ngIf="user?.role === 'student'">
+            <button class="circle-button" (click)="classPoints()">
+                <i class="pi pi-sparkles"></i>
+            </button>
+            <span class="button-label">צבירת נקודות כיתתית</span>
+        </div>
+    </div>
+
+    <button class="logout-btn" (click)="logOut()">
+        יציאה
+        <i class="pi pi-sign-out"></i>
+    </button>
+    <p-dialog header="צבירת נקודות" [(visible)]="visible1" [modal]="true"
+        [breakpoints]="{ '1199px': '70vw', '575px': '95vw' }" [style]="{ width: '550px', minHeight: '320px' }"
+        [draggable]="false" [resizable]="false" class="dramatic-dialog">
+
+        <div class="dialog-content">
+            <p>כבר צברת</p>
+            <p class="points">{{ user?.points }} נקודות!</p>
+        </div>
+    </p-dialog>
+
+    <p-dialog header="צבירת נקודות כיתתית" [(visible)]="visible2" [modal]="true"
+        [breakpoints]="{ '1199px': '70vw', '575px': '95vw' }" [style]="{ width: '550px', minHeight: '320px' }"
+        [draggable]="false" [resizable]="false" class="dramatic-dialog">
+
+        <div class="dialog-content">
+            <p>כמות הנקודות הכיתתית:</p>
+            <p class="points">{{ clsPnts }} נקודות!</p>
+        </div>
+    </p-dialog>
+
+</div>

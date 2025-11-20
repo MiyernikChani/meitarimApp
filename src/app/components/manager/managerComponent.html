@@ -1,0 +1,258 @@
+<!-- <p-toast position="top-left"></p-toast>
+
+<div class="management-grid">
+  <div class="management-card time-container">
+    <h2>ניהול זמני צבירת נקודות</h2>
+
+    <div class="card-content">
+      <ng-container *ngIf="!isEditing && time; else editTime">
+        <div class="card-body">
+          <p><strong>שעת פתיחה:</strong> {{ time.timeOpenAccumulation }}</p>
+          <p><strong>שעת סגירה:</strong> {{ time.timeCloseAccumulation }}</p>
+        </div>
+        <div class="card-actions">
+          <button (click)="toggleEdit()" class="btn-edit">
+            <i class="pi pi-pencil"></i>
+            עריכה
+          </button>
+        </div>
+      </ng-container>
+
+      <ng-template #editTime>
+        <form [formGroup]="timeForm" (ngSubmit)="saveTime()" class="edit-form">
+          <div class="card-body">
+            <div class="form-group">
+              <label>שעת פתיחה:</label>
+              <div class="custom-time-picker" (click)="$event.stopPropagation()">
+                <input type="text" formControlName="timeOpenAccumulation"
+                  (focus)="toggleDropdown('open')"
+                  (input)="dropdownOpen = null"
+                  placeholder="hh:mm" />
+                <i class="pi pi-clock clock-icon" (click)="toggleDropdown('open')"></i>
+                <ul class="time-options" [class.show]="dropdownOpen==='open'">
+                  <li *ngFor="let t of timeOptions" (click)="selectTime('timeOpenAccumulation', t)">
+                    {{ t }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>שעת סגירה:</label>
+              <div class="custom-time-picker" (click)="$event.stopPropagation()">
+                <input type="text" formControlName="timeCloseAccumulation"
+                  (focus)="toggleDropdown('close')"
+                  (input)="dropdownOpen = null"
+                  placeholder="hh:mm" />
+                <i class="pi pi-clock clock-icon" (click)="toggleDropdown('close')"></i>
+                <ul class="time-options" [class.show]="dropdownOpen==='close'">
+                  <li *ngFor="let t of timeOptions" (click)="selectTime('timeCloseAccumulation', t)">
+                    {{ t }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-actions">
+            <button type="submit" [disabled]="timeForm.invalid">
+              <i class="pi pi-check"></i>
+              שמור
+            </button>
+            <button type="button" (click)="toggleEdit()">
+              <i class="pi pi-times"></i>
+              בטל
+            </button>
+          </div>
+        </form>
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="management-card points-container">
+    <h2>ניהול כמות צבירת נקודות</h2>
+
+    <div class="card-content">
+      <ng-container *ngIf="!isEditingPoints && accumulationAmount !== null; else editPoints">
+        <div class="card-body">
+          <p><strong>כמות נוכחית:</strong> {{ accumulationAmount }}</p>
+        </div>
+        <div class="card-actions">
+          <button (click)="toggleEditPoints()" class="btn-edit">
+            <i class="pi pi-pencil"></i>
+            עריכה
+          </button>
+        </div>
+      </ng-container>
+
+      <ng-template #editPoints>
+        <form [formGroup]="pointsForm" (ngSubmit)="savePoints()" class="edit-form">
+          <div class="card-body">
+            <div class="form-group">
+              <label>כמות נקודות לצבירה:</label>
+              <input type="number" formControlName="accumulationAmount" min="1" />
+            </div>
+          </div>
+          <div class="card-actions">
+            <button type="submit" [disabled]="pointsForm.invalid">
+              <i class="pi pi-check"></i>
+              שמור
+            </button>
+            <button type="button" (click)="toggleEditPoints()">
+              <i class="pi pi-times"></i>
+              בטל
+            </button>
+          </div>
+        </form>
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="management-card system-status-container">
+    <h2>סטטוס מערכת</h2>
+    <div class="card-content">
+      <div class="card-body">
+        <h3>{{ systemStatus ? 'פתוחה' : 'סגורה' }}</h3>
+      </div>
+      <div class="card-actions">
+        <button class="system-btn" [ngClass]="{ open: !systemStatus, close: systemStatus }"
+          (click)="toggleSystemStatus()">
+          <i class="pi" [ngClass]="systemStatus ? 'pi-lock' : 'pi-unlock'"></i>
+          {{ systemStatus ? 'סגירת מערכת' : 'פתיחת מערכת' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-btn">
+  <button class="manage-btn" type="button" (click)="manageStudent()">
+    <i class="pi pi-users"></i>
+    לניהול תלמידים
+  </button>
+</div>
+
+
+
+ -->
+
+
+
+
+<p-toast position="top-left"></p-toast>
+
+<div class="management-grid">
+
+  <!-- TIME CARD -->
+  <div class="management-card">
+    <div class="ppppiiii">
+      <i class="pi pi-clock ppi"></i>
+      <h2>ניהול זמני צבירת נקודות</h2>
+    </div>
+    <div class="card-content">
+
+      <ng-container *ngIf="!isEditingTime && time">
+        <div class="card-body">
+          <p><strong>שעת פתיחה:</strong> {{ time.timeOpenAccumulation }}</p>
+          <p><strong>שעת סגירה:</strong> {{ time.timeCloseAccumulation }}</p>
+        </div>
+        <div class="card-actions">
+          <button class="btn-edit" (click)="toggleEditTime()">
+            <i class="pi pi-pencil"></i> עריכה
+          </button>
+        </div>
+      </ng-container>
+
+      <form *ngIf="isEditingTime" [formGroup]="timeForm" (ngSubmit)="saveTime()" class="edit-form">
+        <div class="card-body">
+          <div class="form-group">
+            <label>שעת פתיחה:</label>
+            <div class="custom-time-picker" (click)="$event.stopPropagation()">
+              <input type="text" formControlName="timeOpenAccumulation" (focus)="toggleDropdown('open')"
+                placeholder="hh:mm">
+              <i class="pi pi-clock clock-icon" (click)="toggleDropdown('open')"></i>
+              <ul class="time-options" [class.show]="dropdownOpen==='open'">
+                <li *ngFor="let t of timeOptions" (click)="selectTime('timeOpenAccumulation', t)">{{ t }}</li>
+              </ul>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>שעת סגירה:</label>
+            <div class="custom-time-picker" (click)="$event.stopPropagation()">
+              <input type="text" formControlName="timeCloseAccumulation" (focus)="toggleDropdown('close')"
+                placeholder="hh:mm">
+              <i class="pi pi-clock clock-icon" (click)="toggleDropdown('close')"></i>
+              <ul class="time-options" [class.show]="dropdownOpen==='close'">
+                <li *ngFor="let t of timeOptions" (click)="selectTime('timeCloseAccumulation', t)">{{ t }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <button type="submit" [disabled]="timeForm.invalid"><i class="pi pi-check"></i> שמור</button>
+          <button type="button" (click)="toggleEditTime()"><i class="pi pi-times"></i> ביטול</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- POINTS CARD -->
+  <div class="management-card">
+    <div class="ppppiiii">
+      <i class="pi pi-sparkles ppi"></i>
+      <h2>ניהול כמות צבירת נקודות</h2>
+    </div>
+    <div class="card-content">
+
+      <ng-container *ngIf="!isEditingPoints && accumulationAmount !== null">
+        <div class="card-body">
+          <p><strong>כמות נוכחית:</strong> {{ accumulationAmount }}</p>
+        </div>
+        <div class="card-actions">
+          <button class="btn-edit" (click)="toggleEditPoints()"><i class="pi pi-pencil"></i> עריכה</button>
+        </div>
+      </ng-container>
+
+      <form *ngIf="isEditingPoints" [formGroup]="pointsForm" (ngSubmit)="savePoints()" class="edit-form">
+        <div class="card-body">
+          <div class="form-group">
+            <label>כמות נקודות:</label>
+            <input type="number" formControlName="accumulationAmount" min="1">
+          </div>
+        </div>
+        <div class="card-actions">
+          <button type="submit" [disabled]="pointsForm.invalid"><i class="pi pi-check"></i> שמור</button>
+          <button type="button" (click)="toggleEditPoints()"><i class="pi pi-times"></i> ביטול</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- SYSTEM STATUS -->
+  <div class="management-card">
+    <div class="ppppiiii">
+      <i class="pi pi-ban ppi"></i>
+      <h2>סטטוס מערכת</h2>
+    </div>
+    <div class="card-content">
+      <div class="card-body">
+        <h3>{{ systemStatus ? 'פתוחה' : 'סגורה' }}</h3>
+      </div>
+      <div class="card-actions">
+        <button class="system-btn" [ngClass]="{ open: !systemStatus, close: systemStatus }"
+          (click)="toggleSystemStatus()">
+          <i class="pi" [ngClass]="systemStatus ? 'pi-lock' : 'pi-unlock'"></i>
+          {{ systemStatus ? 'סגירת מערכת' : 'פתיחת מערכת' }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="bottom-btn">
+  <button class="manage-btn" type="button" (click)="manageStudent()">
+    <i class="pi pi-users"></i> לניהול תלמידים
+  </button>
+</div>

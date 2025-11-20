@@ -1,0 +1,158 @@
+/* Wrapper and background */
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #21536d, #d0472c);
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Logo */
+.logo-container {
+    margin-bottom: 30px;
+    animation: logoBounce 2s infinite;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+}
+
+@keyframes logoBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Form container */
+.form-container {
+    background-color: rgba(245, 245, 245, 0.95); /* אפור בהיר ועדין */
+    padding: 30px 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Animated label with downward arrow */
+.animated-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    color: #21536d; /* כחול כהה מהלוגו */
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.animated-label .arrow {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(to bottom, #21536d, #d0472c);
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+    margin-top: 15px;
+    animation: arrowBounce 1s infinite alternate;
+}
+
+@keyframes arrowBounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+/* Input field */
+input#IdInput {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 15px;
+    border: 2px solid #21536d;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+    text-align: center;
+    caret-color: #d0472c;
+}
+
+input#IdInput:focus {
+    border-color: #d0472c;
+    box-shadow: 0 0 10px rgba(208, 71, 44, 0.6);
+}
+
+/* --- רספונסיביות --- */
+@media (max-width: 1024px) { /* טאבלט */
+    .login-wrapper {
+        padding: 10px;
+    }
+
+    .form-container {
+        width: 90%;          /* רוחב כמעט מלא */
+        padding: 20px 25px;  /* שוליים קטנים יותר */
+    }
+
+    .logo {
+        width: 180px;        /* קטן יותר */
+    }
+
+    .animated-label {
+        font-size: 18px;     /* טקסט קטן יותר */
+    }
+
+    .animated-label .arrow {
+        width: 30px;
+        height: 30px;
+        margin-top: 12px;
+    }
+
+    input#IdInput {
+        padding: 10px 15px;  /* פחות padding */
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) { /* סמארטפון גדול */
+    .logo {
+        width: 160px;
+    }
+
+    input#IdInput {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .animated-label {
+        font-size: 16px;
+    }
+
+    .animated-label .arrow {
+        width: 25px;
+        height: 25px;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) { /* סמארטפון קטן */
+    .logo {
+        width: 140px;
+    }
+
+    input#IdInput {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .animated-label {
+        font-size: 14px;
+    }
+
+    .animated-label .arrow {
+        width: 20px;
+        height: 20px;
+        margin-top: 8px;
+    }
+}

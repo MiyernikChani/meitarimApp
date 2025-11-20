@@ -1,0 +1,313 @@
+:host {
+  display: block;
+  direction: rtl;
+  font-family: 'Assistant', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  padding: 40px;
+  min-height: 100vh;
+}
+
+/* ===== כותרות ===== */
+h2 {
+  color: #21536d;
+  font-weight: 600;
+  border-bottom: 2px solid #d0472c;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 25px;
+  text-align: center;
+  width: 100%;
+}
+
+/* ===== גריד כללי ===== */
+.management-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  align-items: start;
+  margin-top: 100px;
+}
+
+/* ===== כרטיסים ===== */
+.management-card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  padding: 25px 30px;
+  width: 100%;
+  max-width: 400px;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  text-align: center;
+  transition: none;
+}
+
+.management-card:hover {
+  transform: none;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== תוכן פנימי ===== */
+.card-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.edit-form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ===== טפסים ===== */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+  text-align: right;
+}
+
+label {
+  font-weight: 500;
+  color: #21536d;
+  margin-bottom: 6px;
+}
+
+input {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+input:focus {
+  border-color: #21536d;
+  box-shadow: 0 0 5px rgba(33, 83, 109, 0.2);
+  outline: none;
+}
+
+/* ===== כפתורים ===== */
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 22px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 0px;
+}
+
+/* סגנונות ספציפיים */
+.btn-edit {
+  background-color: #21536d;
+  color: #fff;
+}
+
+.btn-edit:hover {
+  background-color: #1a4257;
+}
+
+button[type='submit'] {
+  background-color: #21536d;
+  color: #fff;
+}
+
+button[type='submit']:hover:not(:disabled) {
+  background-color: #1a4257;
+}
+
+button[type='button'] {
+  background-color: #d0472c;
+  color: #fff;
+}
+
+button[type='button']:hover {
+  background-color: #a33822;
+}
+
+/* ✅ כפתור שמירה במצב disable */
+button:disabled,
+button[disabled] {
+  background-color: #dcdcdc !important;
+  color: #888 !important;
+  border: 1px solid #bdbdbd !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  transform: none !important;
+  opacity: 0.8;
+}
+
+/* ===== כפתור סטטוס מערכת ===== */
+.system-btn {
+  font-size: 18px;
+  padding: 12px 25px;
+  font-weight: bold;
+  border-radius: 30px;
+}
+
+.system-btn.open {
+  background-color: #21536d;
+  color: white;
+}
+
+.system-btn.close {
+  background-color: #d0472c;
+  color: white;
+}
+
+.system-btn:hover {
+  transform: none;
+}
+
+/* ===== כפתור מעבר לניהול תלמידים ===== */
+.bottom-btn {
+  text-align: center;
+  margin-top: 70px;
+}
+
+.manage-btn {
+  background: linear-gradient(135deg, #21536d, #d0472c);
+  color: #fff;
+  padding: 12px 26px;
+  border-radius: 30px;
+  font-size: 17px;
+  transition: all 0.3s ease;
+}
+
+.manage-btn:hover {
+  filter: brightness(1.1);
+  transform: scale(1.05);
+}
+
+/* ===== רספונסיביות ===== */
+@media (max-width: 768px) {
+  .management-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+/* Custom Time Picker */
+.custom-time-picker {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.custom-time-picker input {
+  width: 100%;
+  padding: 10px 40px 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #f9faff;
+  transition: all 0.3s ease;
+}
+
+.custom-time-picker input:focus {
+  border-color: #d0472c;
+  box-shadow: 0 0 8px rgba(208, 71, 44, 0.3);
+  outline: none;
+}
+
+/* אייקון שעון */
+.clock-icon {
+  position: absolute;
+  right: 10px;
+  font-size: 20px;
+  color: #d0472c;
+  cursor: pointer;
+  background: #fff;
+  border-radius: 50%;
+  padding: 4px;
+  transition: all 0.3s ease;
+}
+
+/* רשימת שעות נפתחת */
+.time-options {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 100%;
+  max-height: 180px;
+  overflow-y: auto;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  z-index: 100;
+  margin-top: 6px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  padding: 5px 0;
+  display: none;
+}
+
+.time-options.show {
+  display: block;
+}
+
+.time-options li {
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.time-options li:hover {
+  background-color: #d0472c;
+  color: #fff;
+  border-radius: 8px;
+}
+
+/* Scrollbar מודרני */
+.time-options::-webkit-scrollbar {
+  width: 6px;
+}
+
+.time-options::-webkit-scrollbar-thumb {
+  background-color: #d0472c;
+  border-radius: 3px;
+}
+
+.time-options::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+}
+
+.ppi{
+  color: #d0472c;
+}
+
+
+
