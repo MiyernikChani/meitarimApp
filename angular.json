@@ -40,7 +40,7 @@
               "node_modules/primeicons/primeicons.css",
               "src/styles.scss"
             ],
-            "outputPath": "dist/meitarim-app"  // <- השורה החשובה שנוספה
+            "outputPath": "dist/meitarim-app/browser"
           },
           "configurations": {
             "production": {
