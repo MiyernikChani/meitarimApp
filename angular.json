@@ -39,7 +39,8 @@
             "styles": [
               "node_modules/primeicons/primeicons.css",
               "src/styles.scss"
-            ]
+            ],
+            "outputPath": "dist/meitarim-app"  // <- השורה החשובה שנוספה
           },
           "configurations": {
             "production": {
