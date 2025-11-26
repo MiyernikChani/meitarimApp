@@ -35,6 +35,7 @@ export class AuthService {
       params: { classs }
     });
   }
+  
 
   getAuth(): Observable<Auth | null> {
     return this.authStore.getAuth();

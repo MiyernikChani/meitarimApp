@@ -152,6 +152,7 @@ export class ManagStudent {
     const excelBuffer: any = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
     const blob = new Blob([excelBuffer], { type: 'application/octet-stream' });
     saveAs(blob, 'students.xlsx');
+    
   }
 
 
