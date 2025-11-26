@@ -49,7 +49,7 @@ jobs:
           app_location: "dist/meitarimApp/browser"   # כאן הנתיב המדויק ל-index.html
           api_location: "none"
           output_location: "dist/meitarimApp/browser"  # חייב להתאים ל-outputPath
-          skip_app_build: false
+          skip_app_build: true
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
