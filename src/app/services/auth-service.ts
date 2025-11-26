@@ -23,10 +23,12 @@ export class AuthService {
   }
 
   getCallerLogin(identityNumber: string): Observable<Auth> {
-    return this.httpClient.post<Auth>(this.ApiUrls.base + this.ApiUrls.login, {}, {
-      params: { identityNumber }
-    });
+    return this.httpClient.post<Auth>(
+      `${this.ApiUrls.base + this.ApiUrls.login}?identityNumber=${identityNumber}`,
+      {}
+    );
   }
+
 
   getCallerClsPnts(classs: string): Observable<number> {
     return this.httpClient.get<number>(this.ApiUrls.base + this.ApiUrls.classPoints, {

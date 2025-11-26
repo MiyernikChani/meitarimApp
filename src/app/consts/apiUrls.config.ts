@@ -1,5 +1,5 @@
 export const apiUrls = {
-    base: 'https://localhost:7283/api/',
+    base: 'https://meitarim-api-dwghemf8fhb7c8gd.francecentral-01.azurewebsites.net/api/',
 
     login: 'Login/login',
     classPoints: 'Student/getPointsForClass',
